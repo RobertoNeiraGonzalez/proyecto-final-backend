@@ -153,7 +153,7 @@ async function getOneUserwithInfo(req, res) {
   try {
     const userId = req.params.id;
     const user = await User.findByPk(userId, {
-      include: [{ model: Info_user },{ model: Pet, as: 'pets',include: [{ model: Info_pet }]  },]
+      include: [{ model: Info_user },{ model: Pet,include: [{ model: Info_pet }]  },]
     });
 
     if (!user) {
