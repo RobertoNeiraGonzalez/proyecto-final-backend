@@ -4,7 +4,7 @@ const User = require('../models/user.model')
 const Info_user = require('../models/info_user')
 const Pet = require('../models/pet')
 const Info_pet = require('../models/info_pet')
-const {getOnePetWithInfo}=require('./../controllers/pet.controller')
+
 
 async function getAllUsers(req, res) {
   try {
@@ -53,7 +53,7 @@ async function getOneUser(req, res) {
 }
 
 //Lazy
-async function getOneUserwithInfo(req, res) {
+/*async function getOneUserwithInfo(req, res) {
   try {
     const user = await User.findByPk(req.params.id);
     const info = await user.getInfo_user({ joinTableAttributes: [] });
@@ -65,7 +65,7 @@ async function getOneUserwithInfo(req, res) {
   } catch (error) {
     res.status(500).send(error.message);
   }
-}
+}*/
 
 
 
@@ -148,6 +148,24 @@ async function deleteOwnProfile(req, res) {
     res.status(500).send(error.message)
   }
 }
+
+async function getOneUserwithInfo(req, res) {
+  try {
+    const userId = req.params.id;
+    const user = await User.findByPk(userId, {
+      include: [{ model: Info_user },{ model: Pet, as: 'pets',include: [{ model: Info_pet }]  },]
+    });
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    return res.status(200).json({ user: user });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+}
+
 
 module.exports = {
   getAllUsers,
