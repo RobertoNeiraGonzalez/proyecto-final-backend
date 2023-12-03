@@ -5,6 +5,7 @@ const {
   getOneUser,
   getOwnProfile,
   getOneUserwithInfo,
+  getOneUserwithInfoPets,
   createUser,
   updateUser,
   deleteUser,
@@ -16,6 +17,7 @@ router.get('/', getAllUsers)
 router.get('/me', getOwnProfile)
 router.get('/:id', getOneUser)
 router.get('/:id/user/lazy', getOneUserwithInfo)
+router.get('/:id/user/pets/info', getOneUserwithInfoPets)
 router.post('/', createUser)
 router.put('/me', updateOwnProfile)
 router.put('/:id', updateUser)
