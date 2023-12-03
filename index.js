@@ -10,7 +10,7 @@ const morgan = require('morgan')
 async function checkAndSyncMysql() {
   await checkConnection()
   addRelationsToModels()
-  await syncModels('alter')
+  await syncModels()
 }
 
 function initializeAndListenWithExpress() {
