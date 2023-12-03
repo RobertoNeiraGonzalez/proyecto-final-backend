@@ -2,6 +2,7 @@ const User = require('../api/models/user.model')
 const Pet = require('../api/models/pet')
 const Info_user = require('../api/models/info_user')
 const Info_pet = require('../api/models/info_pet')
+const Comment = require('../api/models/comments')
 
 function addRelationsToModels() {
   try {
@@ -13,6 +14,9 @@ function addRelationsToModels() {
 
     User.hasMany(Pet)
     Pet.belongsTo(User)
+
+    User.hasMany(Comment)
+    Comment.belongsTo(User)
 
   } catch (error) {
     throw error
