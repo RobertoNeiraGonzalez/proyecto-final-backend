@@ -13,7 +13,7 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 POST   | /auth/signup     | -     | user | User Signup              | `firstName`,`lastName`, `email`, `password` | { token: `token` }
 POST   | /auth/login      | -     | user | User Login               | `email`, `password`                             | { token: `token` }
 
-### User Endpoints
+### User Endpoints 🧔
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
@@ -27,7 +27,7 @@ PUT    | /user/:userId       | YES   | admin | Update one user         |  `first
 DELETE | /user/:userId      | YES   | admin | Delete one user         |                                                   | {message: 'User deleted'}
 DELETE | /user/me   | YES   | user | Delete own profile       |                                                    | { message: 'Profile deleted' }
 
-###  Pets Endpoints
+###  Pets Endpoints 🐱🐶
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
@@ -40,7 +40,7 @@ PUT    | /pets/:petId 🐈‍⬛      | YES   | admin | Update one pet         |
 DELETE | /pets/:petId 🐶    | YES   | admin | Delete one pet        |                                                   | {message: 'User deleted'}
 DELETE   | /pets/me    | YES      | user | Delete own pet Info          |                            | {message: 'Your Pet Info have been deleted'}
 
-### Comments Endpoints
+### Comments Endpoints ☄️
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
@@ -55,7 +55,7 @@ PUT   | /comment/:commentId    | YES      | Admin | Update a specific comment   
 DELETE   | /comment/me/:commentId    | YES      | user | Delete own comment             |                            | {message: 'Comment deleted'}
 DELETE   | /comment/:commentId     | YES      | Admin | Delete a specific comment             |                            | {message: 'Comment deleted'}
 
-### Ratings Endpoints
+### Ratings Endpoints 💟
 
 | Method | Endpoint                  | Token Required | Role         | Description                              | Post Params                              | Returns                                  |
 |--------|---------------------------|----------------|--------------|------------------------------------------|------------------------------------------|------------------------------------------|
